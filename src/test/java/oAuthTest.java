@@ -10,23 +10,15 @@ import static org.hamcrest.Matchers.*;
 
 public class oAuthTest {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe");
-        WebDriver driver;
-        driver = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe");
+//        WebDriver driver;
+//        driver = new ChromeDriver();
 
-        driver.get("https://accounts.google.com/o/oauth2/v2/auth/identifier?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&auth_url=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&client_id=692183103107-p0m7ent2hk7suguv4vq22hjcfhcr43pj.apps.googleusercontent.com&response_type=code&redirect_uri=https%3A%2F%2Frahulshettyacademy.com%2FgetCourse.php&state=verifyddss&flowName=GeneralOAuthFlow");
-        driver.findElement(By.cssSelector("input[type='email']")).sendKeys("srinath19830");
-        driver.findElement(By.cssSelector("input[type='email']")).sendKeys(Keys.ENTER);
+        String url = "https://rahulshettyacademy.com/getCourse.php?state=verifyddss&code=4%2F4wE899oPFPjpzmH17BB5Hx_vqlmRS4UWoVCpNNmgIyIWUz0HSkHrBfwS8NdmxJNWfzyn7ggGvejsbaCptzZLyxQ&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent#";
 
-        driver.findElement(By.cssSelector("input[type='email']")).sendKeys(password);
-        driver.findElement(By.cssSelector("input[type='email']")).sendKeys(Keys.ENTER);
-
-        String url = driver.getCurrentUrl();
         String partialCode = url.split("code=")[1];
         String code = partialCode.split("&scope")[0];
         System.out.println(code);
-
-
 
 
         String accessTokenResponse = given().urlEncodingEnabled(false).
