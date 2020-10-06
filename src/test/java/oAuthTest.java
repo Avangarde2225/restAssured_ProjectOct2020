@@ -1,8 +1,4 @@
 import io.restassured.path.json.JsonPath;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
