@@ -1,6 +1,9 @@
 import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
+import pojo.Api;
 import pojo.ResponseGetCourse;
+
+import java.util.List;
 
 import static io.restassured.RestAssured.*;
 
@@ -37,7 +40,17 @@ public class oAuthTest {
                 when().
                 get("https://rahulshettyacademy.com/getCourse.php").as(ResponseGetCourse.class);
 
-      System.out.println("Linkedin profile " + response.getLinkedin());
+        System.out.println("Linkedin profile " + response.getLinkedin());
+        System.out.println(response.getIntructor());
+        System.out.println(response.getCourses().getApi().get(1).getCourseTitle());
+
+        List<Api> apiCourses = response.getCourses().getApi();
+        for (int i = 0; i < apiCourses.size(); i++) {
+            if(apiCourses.get(i).getCourseTitle().equals("SoapUI Webservices Testing")){
+                System.out.println("SoapUI Course Price " + apiCourses.get(i).getPrice());
+            }
+        }
+
         //System.out.println(response);
 
     }
