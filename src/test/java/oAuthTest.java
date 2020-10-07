@@ -3,8 +3,7 @@ import io.restassured.path.json.JsonPath;
 import pojo.ResponseGetCourse;
 
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+
 
 public class oAuthTest {
     public static void main(String[] args) {
@@ -37,6 +36,8 @@ public class oAuthTest {
               expect().defaultParser(Parser.JSON).
                 when().
                 get("https://rahulshettyacademy.com/getCourse.php").as(ResponseGetCourse.class);
+
+      System.out.println("Linkedin profile " + response.getLinkedin());
         //System.out.println(response);
 
     }
