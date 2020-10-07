@@ -1,4 +1,6 @@
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
+import pojo.ResponseGetCourse;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -30,11 +32,12 @@ public class oAuthTest {
         String accessToken = js.getString("access_token");
 
 
-      String response =  given().
+      ResponseGetCourse response =  given().
                 queryParam("access_token", accessToken).
-                when().log().all().
-                get("https://rahulshettyacademy.com/getCourse.php").asString();
-        System.out.println(response);
+              expect().defaultParser(Parser.JSON).
+                when().
+                get("https://rahulshettyacademy.com/getCourse.php").as(ResponseGetCourse.class);
+        //System.out.println(response);
 
     }
 }
