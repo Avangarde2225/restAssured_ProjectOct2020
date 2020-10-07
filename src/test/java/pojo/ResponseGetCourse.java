@@ -5,7 +5,7 @@ public class ResponseGetCourse {
     private String url;
     private String services;
     private String expertise;
-    private String courses;
+    private Courses courses;
     private String intructor;
     private String linkedin;
 
@@ -34,11 +34,11 @@ public class ResponseGetCourse {
         this.expertise = expertise;
     }
 
-    public String getCourses() {
+    public Courses getCourses() {
         return courses;
     }
 
-    public void setCourses(String courses) {
+    public void setCourses(Courses courses) {
         this.courses = courses;
     }
 
